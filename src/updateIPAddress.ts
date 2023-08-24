@@ -1,9 +1,10 @@
 import { Contacto, contactos } from "./contactos";
 
-const updateIPAddress = (ip_address: string) => {
-  return contactos.filter(
-    (contacto) => contacto.ip_address != contacto.ip_address
-  );
+const updateIPAddress = (contactos: Contacto[]) => {
+  contactos.forEach((contacto) => {
+    contacto.ip_address = contacto.ip_address + "." + contacto.id;
+  });
+  return contactos;
 };
 
 export { updateIPAddress };
